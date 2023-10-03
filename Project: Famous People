@@ -1,0 +1,38 @@
+/* Create table about the people and what they do here. Here, we have a table of famous people w/ details about their music. */
+
+CREATE TABLE famous_people (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    albums INTEGER);
+    
+INSERT INTO famous_people (name, age, albums) VALUES ("Harry Styles", 29, 3);
+INSERT INTO famous_people (name, age, albums) VALUES ("Taylor Swift", 34, 8);
+INSERT INTO famous_people (name, age, albums) VALUES ("Olivia Rodrigo", 19, 2);
+INSERT INTO famous_people (name, age, albums) VALUES ("Drake", 38, 10);
+INSERT INTO famous_people (name, age, albums) VALUES ("Joe Jonas", 35, 2);
+INSERT INTO famous_people (name, age, albums) VALUES ("Selena Gomez", 31, 4);
+INSERT INTO famous_people (name, age, albums) VALUES ("Demi Lovato", 32, 5);
+INSERT INTO famous_people (name, age, albums) VALUES ("Miley Cyrus", 32, 7);
+
+CREATE TABLE music (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    famous_person_id INTEGER,
+    genre TEXT,
+    music_tv TEXT);
+    
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (1, "pop", "MTV");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (2, "country", "CMA");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (3, "pop", "Disney");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (4, "hip-hop", "MTV");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (5, "rock", "Disney");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (6, "pop", "Disney");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (7, "rock", "MTV");
+INSERT INTO music (famous_person_id, genre, music_tv) VALUES (8, "country", "Disney");
+
+/* Here, we are joining the two tables to show us each famous person's genre of music */
+
+SELECT famous_people.name, music.genre
+FROM famous_people
+JOIN music
+ON famous_people.id = music.famous_person_id;
